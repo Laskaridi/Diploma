@@ -1,0 +1,85 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.mynavbar{
+    width: 100vw;
+    background-color: #F2F3F6;
+}
+.icon-logo{
+    color: #0c0c83;
+    height: 50px;
+    margin-left: 150px;
+}
+.icon-menu{
+    color: rgb(114 114 114);
+    padding-right: 10px;
+}
+.search-input{
+    width: 800px;
+    font-family: Figtree;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid rgb(229 229 229);
+    background-color: white;
+    border-radius: 22px;
+    padding-left: 15px;
+    margin-left: 80px;
+}
+.input-header{
+    border: none;
+}
+.icon-search{
+    color: rgb(114 114 114);
+    font-family: Figtree;
+    font-size: 18px;
+    font-weight: 500;
+    padding-right: 10px;
+}
+.search-button{
+    color: white;
+    background-color: #0c0c83;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    font-family: Figtree;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    left: 480px;
+    padding: 10px 10px;
+}
+.basket-button, .login-button{
+    color: rgb(114 114 114);
+    background-color: #F2F3F6;
+    border: none;
+    font-family: Figtree;
+    font-size: 18px;
+    font-weight: 500;
+}
+.icon-basket, .icon-login{
+    height: 20px;
+    color: rgb(114 114 114);
+    padding-right: 10px;
+}
+.icon-basket{
+    margin-left: 80px;
+}
+.login-button{
+    margin-right: 150px;
+}
+.show-button{
+    background-color: #F2F3F6;
+    color: rgb(114 114 114);
+    border-radius: 8px;
+    padding: 10px 10px;
+    cursor: pointer;
+    position: relative;
+    left: 700px;
+}
+.footer{
+    background-color: #F2F3F6;
+    font-family: Figtree;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 50px 150px;
+    margin-bottom: 0;
+}

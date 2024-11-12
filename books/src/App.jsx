@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import './App.css'
 import Home from './components/Home/Home'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 function App() {
   const [count, setCount] = useState(0)

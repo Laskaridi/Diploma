@@ -27,7 +27,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  background-color: #F2F3F6;
 }
 
 h1 {
@@ -57,7 +57,8 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #F2F3F6;
+    padding-top: 50px;
   }
   a:hover {
     color: #747bff;
