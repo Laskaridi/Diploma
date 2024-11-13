@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Books() {
+function Movies() {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -61,4 +61,4 @@ function Books() {
     );
 }
 
-export default Books;
+export default Movies;

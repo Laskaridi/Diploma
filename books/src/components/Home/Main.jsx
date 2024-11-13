@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
 import Slider from './Slider';
-import Books from './Books';
+import Movies from './Movies';
 
 function Main(props) {
     return (
@@ -9,7 +9,7 @@ function Main(props) {
             <div className='animation'></div>
             <div className='content-books'>
                <Slider></Slider>
-               <Books></Books>
+               <Movies></Movies>
             </div>
         </div>
     );
