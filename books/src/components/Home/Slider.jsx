@@ -1,68 +1,70 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/scrollbar';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
-import {Autoplay, Keyboard, Scrollbar, Pagination, Navigation } from 'swiper/modules';
+import {Autoplay, Keyboard, Pagination, Navigation } from 'swiper/modules';
 import './home.css';
 
-function Slider(props) {
+function Slider() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const apiKey = '977ed025515af5100a62a22770595d94'; 
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+        );
+        if (!response.ok) {
+          throw new Error('Failed to fetch movies');
+        }
+        const data = await response.json();
+        setMovies(data.results.slice(0, 10));
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+
+  if (loading) {
+    return <p>Loading movies...</p>;
+  }
+
     return (
-        <div>
+        <div className='slider'>
             <Swiper
-        slidesPerView={3}
-        centeredSlides={false}
-        slidesPerGroupSkip={1}
-        grabCursor={true}
-        keyboard={{
-          enabled: true,
-        }}
-        breakpoints={{
-          769: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
-          },
-        }}
-        scrollbar={true}
-        autoplay={{
+             slidesPerView={3}
+             spaceBetween={30}
+             keyboard={{
+             enabled: true,
+             }}
+            scrollbar={true}
+            autoplay={{
             delay: 2500,
             disableOnInteraction: false,
-        }}
-        navigation={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Autoplay, Keyboard, Scrollbar, Navigation, Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <img src="/vite.svg" />
+            }}
+            navigation={true}
+            pagination={{
+            clickable: true,
+            }}
+            modules={[Autoplay, Keyboard, Navigation, Pagination]}
+            className="mySwiper"
+         >
+           {movies.map((movie) => (
+        <SwiperSlide key={movie.id}>   
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+               className='swiper-slide-img'
+              />   
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-002.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-003.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-004.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-005.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-006.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-007.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-008.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://cdn.magloft.com/github/swiper/images/page-009.jpg" />
-        </SwiperSlide>
+          ))}
       </Swiper>
         </div>
     );
