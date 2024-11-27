@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 import {Autoplay, Keyboard, Pagination, Navigation } from 'swiper/modules';
 import './home.css';
+import { Link } from 'react-router-dom';
 
 function Slider() {
   const [movies, setMovies] = useState([]);
@@ -58,11 +59,13 @@ function Slider() {
          >
            {movies.map((movie) => (
         <SwiperSlide key={movie.id}>   
+         <Link to={`/movie/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
                className='swiper-slide-img'
               />   
+         </Link>
         </SwiperSlide>
           ))}
       </Swiper>

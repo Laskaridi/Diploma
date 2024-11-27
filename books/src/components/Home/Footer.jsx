@@ -3,7 +3,7 @@ import './home.css'
 
 function Footer(props) {
      const nowYear = new Date().getFullYear();
-     const datInfo = `© Books 2004-${nowYear}. All rights reserved`
+     const datInfo = `© Movies Info 2004-${nowYear}. All rights reserved`
     return (
         <div>
             <h5 className='footer'>{datInfo}</h5>

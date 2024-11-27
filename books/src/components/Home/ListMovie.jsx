@@ -1,40 +1,40 @@
 import React from 'react';
 import { Offcanvas, ListGroup } from 'react-bootstrap';
 import './home.css';
+import { Link } from 'react-router-dom';
 
-function ListMovie({ show, onClose, onCategorySelect }) {
+function ListMovie({ show, onClose }) {
 
-    const categories = ['Action',
-    'Comedy',
-    'Drama',
-    'Horror',
-    'Romance'];
-    
+  const genres = [
+    { id: 28, name: 'Action' },
+    { id: 35, name: 'Comedy' },
+    { id: 18, name: 'Drama' },
+    { id: 27, name: 'Horror' },
+    { id: 10749, name: 'Romance' },
+    { id: 14, name: 'Fantasy' },
+];
     return (
-        <div>  
-           
+        <div>          
             <Offcanvas show={show} onHide={onClose} placement="start">
             <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Categories</Offcanvas.Title>
+            <Offcanvas.Title><h3 className='genre-title ms-2'>Genres</h3></Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
             <ListGroup variant="flush">
-          {categories.map((category) => (
+             {genres.map((genre) => (
             <ListGroup.Item
-              key={category}
-              onClick={() => {
-                onCategorySelect(category);
-                onClose();
-              }}
-              style={{ 
-                cursor: 'pointer',
-                padding: '20px 10px'
-               }}
+              key={genre.id}
             >
-              {category.replace('_', ' ').toUpperCase()}
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
+           <Link
+               to={`/genre/${genre.id}`}
+               onClick={onClose}
+               className='genre-link'
+           >
+               {genre.name}
+           </Link>
+           </ListGroup.Item>
+           ))}
+           </ListGroup>
             </Offcanvas.Body>
             </Offcanvas> 
            

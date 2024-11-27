@@ -1,16 +1,13 @@
-import { useState } from 'react'
 import Home from './components/Home/Home'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import { SearchProvider } from './context/ContextSearch';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <Home></Home>
-    </>
+    <SearchProvider>
+    <Home></Home>
+    </SearchProvider>
   )
 }
 

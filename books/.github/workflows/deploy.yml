@@ -23,7 +23,7 @@ jobs:
 
       - name: Build React app
         env:
-          REACT_APP_API_MOVIES: ${{ secrets.REACT_APP_API_MOVIES }}
+          VITE_API_MOVIES: ${{ secrets.REACT_APP_API_MOVIES }}
         run: npm run build
 
      
