@@ -347,7 +347,7 @@
     font-family: Figtree;
     font-size: 16px;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-top: 8px;
   }
   
   .form-group input{
@@ -363,6 +363,20 @@
   .form-group input:focus{
     border: 1px solid #4848ff;
     outline: none;
+  }
+  .password-container {
+    position: relative;
+  }
+  .toggle-password {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4848ff;
   }
   .base-auth-button{
     display: grid;

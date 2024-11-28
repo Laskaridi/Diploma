@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./home.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faEyeSlash, faEye } from '@fortawesome/free-regular-svg-icons';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../../firebase";
 
@@ -12,6 +13,7 @@ function AuthModal({ show, onClose }) {
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
 
   const validateFields = () => {
     const newErrors = {};
@@ -149,13 +151,22 @@ function AuthModal({ show, onClose }) {
         </div>
         <div className="form-group">
           <label htmlFor="password" className="label-pass">Password<sup>*</sup></label><span></span>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className="password-container">
+            <input
+               type={showPassword ? "text" : "password"}
+              id="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={() => setShowPassword(!showPassword)}
+             >
+            {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
+            </button>
+          </div>
           {errors.password && <p className="error-text">{errors.password}</p>}
         </div>
         <div className="base-auth-button">
