@@ -8,7 +8,7 @@ function MovieDetail() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const apiKey = '977ed025515af5100a62a22770595d94';
+    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=en-US`;
 
     const fetchMovieDetails = async () => {
@@ -32,7 +32,7 @@ function MovieDetail() {
   }
 
   if (!movie) {
-    return <div>Loading...</div>;
+    return <div className='loading-movies'>Loading...</div>;
   }
 
   return (

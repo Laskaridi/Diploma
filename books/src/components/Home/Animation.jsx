@@ -6,7 +6,7 @@ function Animation() {
     const navigate = useNavigate();
     const [moviePosters, setMoviePosters] = useState([]);
 
-    const apiKey = '977ed025515af5100a62a22770595d94';
+    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
 
     useEffect(() => {
         const fetchTrendingMovies = async () => {

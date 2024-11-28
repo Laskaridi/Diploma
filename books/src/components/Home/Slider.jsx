@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 function Slider() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
-  const apiKey = '977ed025515af5100a62a22770595d94'; 
+  const apiKey = import.meta.env.VITE_MOVIES_API_KEY; 
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -34,7 +34,7 @@ function Slider() {
   }, []);
 
   if (loading) {
-    return <p>Loading movies...</p>;
+    return <p className='loading-movies'>Loading movies...</p>;
   }
 
     return (

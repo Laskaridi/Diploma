@@ -6,7 +6,7 @@ export const SearchProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
 
   const handleSearch = async (query) => {
-    const apiKey = '977ed025515af5100a62a22770595d94';
+    const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
     const response = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&language=en-US`
     );

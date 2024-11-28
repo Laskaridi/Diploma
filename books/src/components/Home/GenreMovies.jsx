@@ -19,7 +19,7 @@ function GenreMovies() {
 
     useEffect(() => {
         const fetchMoviesByGenre = async () => {
-            const apiKey = '977ed025515af5100a62a22770595d94';
+            const apiKey = import.meta.env.VITE_MOVIES_API_KEY;
 
             try {
                 const response = await fetch(
@@ -39,8 +39,8 @@ function GenreMovies() {
         fetchMoviesByGenre();
     }, [genreId]);
 
-    if (error) return <div>Error: {error}</div>;
-    if (!movies.length) return <div>Loading...</div>;
+    if (error) return <div className='loading-movies'>Error: {error}</div>;
+    if (!movies.length) return <div className='loading-movies'>Loading...</div>;
 
     return (
       <div className='movies-container'>

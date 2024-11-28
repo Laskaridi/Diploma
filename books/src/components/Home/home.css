@@ -184,7 +184,7 @@
     background-color: #F2F3F6;
     padding: 30px 150px;
 }
-.notfound-massage{
+.notfound-massage, .loading-movies{
   background-color: #F2F3F6;
   font-size: 28px;
   text-align: center;
